@@ -9,9 +9,11 @@ const router = express.Router();
 const User = require('../../models/User');
 const keys = require('../../config/keys');
 
-// @route   POST api/users
-// @desc    Register user
-// @access  Public
+/**
+ * @api {post} api/users Register User
+ * @apiName RegisterUser
+ * @apiGroup Users
+ */
 router.post(
   '/',
   [
@@ -73,7 +75,7 @@ router.post(
       jwt.sign(
         payload,
         keys.jwtSecret,
-        { expiresIn: 3600 }, // 1 hour
+        { expiresIn: 360000 }, // 100 hours for testing purpose
         (err, token) => {
           if (err) throw err;
           res.json({ token });
