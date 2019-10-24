@@ -8,9 +8,11 @@ const auth = require('../../middlewares/auth');
 const User = require('../../models/User');
 const keys = require('../../config/keys');
 
-// @route   GET api/auth
-// @desc    Test route
-// @access  Public
+/**
+ * @api {get} api/auth Get Auth User
+ * @apiName GetAuthUser
+ * @apiGroup Auth
+ */
 router.get('/', auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
@@ -74,7 +76,7 @@ router.post(
       );
     } catch (err) {
       console.error(err.message);
-      res.status(500).send('Server error');
+      res.status(500).send('Server Error');
     }
   }
 );
