@@ -25,15 +25,13 @@ const App = () => {
       <Fragment>
         <Navbar />
         <Route exact path='/' component={Landing} />
-        <Switch>
-          <section className='container'>
-            <Alert />
-            <Switch>
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/login' component={Login} />
-            </Switch>
-          </section>
-        </Switch>
+        <section className='container'>
+          <Alert />
+          <Switch>
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/login' component={Login} />
+          </Switch>
+        </section>
       </Fragment>
     </Router>
   );
