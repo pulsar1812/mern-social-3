@@ -3,9 +3,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import CreateProfile from './components/profile-forms/CreateProfile';
 import Alert from './components/layout/Alert';
+import PrivateRoute from './components/routing/PrivateRoute';
 import { loadUser } from './redux/actions/authActions';
 import store from './redux/store';
 import setAuthToken from './utils/setAuthToken';
@@ -30,6 +33,12 @@ const App = () => {
           <Switch>
             <Route exact path='/register' component={Register} />
             <Route exact path='/login' component={Login} />
+            <PrivateRoute exact path='/dashboard' component={Dashboard} />
+            <PrivateRoute
+              exact
+              path='/create-profile'
+              component={CreateProfile}
+            />
           </Switch>
         </section>
       </Fragment>
